@@ -15,21 +15,21 @@ void board(char plots[]) {
 }
 
 // Function to check if a move has been repeated
-int check_repeat(char plots[], int choice) {
+int checkRepeat(char plots[], int choice) {
     return (plots[choice] == 'X' || plots[choice] == 'O');
 }
 
 // Function to check if a player has won
-int check_win(char plots[]) {
-    int win_conditions[8][3] = {
+int checkWin(char plots[]) {
+    int winConditions[8][3] = {
         {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Rows
         {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Columns
         {0, 4, 8}, {2, 4, 6}             // Diagonals
     };
     
     for (int i = 0; i < 8; i++) {
-        if (plots[win_conditions[i][0]] == plots[win_conditions[i][1]] &&
-            plots[win_conditions[i][1]] == plots[win_conditions[i][2]]) {
+        if (plots[winConditions[i][0]] == plots[winConditions[i][1]] &&
+            plots[winConditions[i][1]] == plots[winConditions[i][2]]) {
             return 1;
         }
     }
@@ -69,14 +69,14 @@ void game() {
                 continue;
             }
 
-            if (check_repeat(plots, choice)) {
+            if (checkRepeat(plots, choice)) {
                 printf("Move already taken! Try again.\n");
                 continue;
             }
         
             plots[choice] = turn(count);
         
-            if (check_win(plots)) {
+            if (checkWin(plots)) {
                 board(plots);
                 printf("Player %c wins!\n", turn(count));
                 score[count % 2]++;
