@@ -1,7 +1,7 @@
 # Tic-Tac-Toe
 A classic game of Tic Tac Toe made completely in C language.
 
-Rules:
+Game Rules:
 - The game is played on a 3x3 square grid, where each plot is marked from 0 (first square) to 8 (last square).
 - Players can choose X or O to mark their territory (Note: X always starts first, followed by O).
 - The player who achieves a connecting pattern of a straight line (horizontal, verticle, or diagonally) wins the game.
